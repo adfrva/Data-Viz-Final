@@ -41,170 +41,168 @@
     <script src="./d3js/d3.js" type="text/javascript"></script>
     <script>
 
-    var width = 1000;
-    var height = 900;
+      var width = 1000;
+      var height = 900;
 
-    var countryNames = ["Afghanistan",	"Albania",	"Algeria",	"American Samoa",	"Andorra",	"Angola",	"Anguilla",	"Antigua and Barbuda",	"Argentina",	"Armenia",	"Aruba",	"Australia",	"Austria",	"Azerbaijan",	"Bahamas",	"Bahrain",	"Bangladesh",	"Barbados",	"Belarus",	"Belgium",	"Belize",	"Benin",	"Bermuda",	"Bhutan",	"Bolivia (Plurinational State of)",	"Bonaire, Sint Eustatius and Saba",	"Bosnia and Herzegovina",	"Botswana",	"Brazil",	"British Virgin Islands",	"Brunei Darussalam",	"Bulgaria",	"Burkina Faso",	"Burundi",	"Cabo Verde",	"Cambodia",	"Cameroon",	"Canada",	"Cayman Islands",	"Central African Republic",	"Chad",	"Channel Islands",	"Chile",	"China",	"China, Hong Kong Special Administrative Region",	"China, Macao Special Administrative Region",	"Colombia",	"Comoros",	"Congo",	"Cook Islands",	"Costa Rica",	"Côte dIvoire",	"Croatia",	"Cuba",	"Curaçao",	"Cyprus",	"Czech Republic",	"Democratic Peoples Republic of Korea",	"Democratic Republic of the Congo",	"Denmark",	"Djibouti",	"Dominica",	"Dominican Republic",	"Ecuador",	"Egypt",	"El Salvador",	"Equatorial Guinea",	"Eritrea",	"Estonia",	"Ethiopia",	"Faeroe Islands",	"Falkland Islands (Malvinas)",	"Fiji",	"Finland",	"France",	"French Guiana",	"French Polynesia",	"Gabon",	"Gambia",	"Georgia",	"Germany",	"Ghana",	"Gibraltar",	"Greece",	"Greenland",	"Grenada",	"Guadeloupe",	"Guam",	"Guatemala",	"Guinea",	"Guinea-Bissau",	"Guyana",	"Haiti",	"Holy See",	"Honduras",	"Hungary",	"Iceland",	"India",	"Indonesia",	"Iran (Islamic Republic of)",	"Iraq",	"Ireland",	"Isle of Man",	"Israel",	"Italy",	"Jamaica",	"Japan",	"Jordan",	"Kazakhstan",	"Kenya",	"Kiribati",	"Kuwait",	"Kyrgyzstan",	"Lao Peoples Democratic Republic",	"Latvia",	"Lebanon",	"Lesotho",	"Liberia",	"Libya",	"Liechtenstein",	"Lithuania",	"Luxembourg",	"Madagascar",	"Malawi",	"Malaysia",	"Maldives",	"Mali",	"Malta",	"Marshall Islands",	"Martinique",	"Mauritania",	"Mauritius",	"Mayotte",	"Mexico",	"Micronesia (Federated States of)",	"Monaco",	"Mongolia",	"Montenegro",	"Montserrat",	"Morocco",	"Mozambique",	"Myanmar",	"Namibia",	"Nauru",	"Nepal",	"Netherlands",	"New Caledonia",	"New Zealand",	"Nicaragua",	"Niger",	"Nigeria",	"Niue",	"Northern Mariana Islands",	"Norway",	"Oman",	"Pakistan",	"Palau",	"Panama",	"Papua New Guinea",	"Paraguay",	"Peru",	"Philippines",	"Poland",	"Portugal",	"Puerto Rico",	"Qatar",	"Republic of Korea",	"Republic of Moldova",	"Réunion",	"Romania",	"Russian Federation",	"Rwanda",	"Saint Helena",	"Saint Kitts and Nevis",	"Saint Lucia",	"Saint Pierre and Miquelon",	"Saint Vincent and the Grenadines",	"Samoa",	"San Marino",	"Sao Tome and Principe",	"Saudi Arabia",	"Senegal",	"Serbia",	"Seychelles",	"Sierra Leone",	"Singapore",	"Sint Maarten (Dutch part)",	"Slovakia",	"Slovenia",	"Solomon Islands",	"Somalia",	"South Africa",	"South Sudan",	"Spain",	"Sri Lanka",	"State of Palestine",	"Sudan",	"Suriname",	"Swaziland",	"Sweden",	"Switzerland",	"Syrian Arab Republic",	"Tajikistan",	"Thailand",	"The former Yugoslav Republic of Macedonia",	"Timor-Leste",	"Togo",	"Tokelau",	"Tonga",	"Trinidad and Tobago",	"Tunisia",	"Turkey",	"Turkmenistan",	"Turks and Caicos Islands",	"Tuvalu",	"Uganda",	"Ukraine",	"United Arab Emirates",	"United Kingdom of Great Britain and Northern Ireland",	"United Republic of Tanzania",	"United States of America",	"United States Virgin Islands",	"Uruguay",	"Uzbekistan",	"Vanuatu",	"Venezuela (Bolivarian Republic of)",	"Viet Nam",	"Wallis and Futuna Islands",	"Western Sahara",	"Yemen",	"Zambia",	"Zimbabwe"];
+      var countryNames = ["Afghanistan",	"Albania",	"Algeria",	"American Samoa",	"Andorra",	"Angola",	"Anguilla",	"Antigua and Barbuda",	"Argentina",	"Armenia",	"Aruba",	"Australia",	"Austria",	"Azerbaijan",	"Bahamas",	"Bahrain",	"Bangladesh",	"Barbados",	"Belarus",	"Belgium",	"Belize",	"Benin",	"Bermuda",	"Bhutan",	"Bolivia (Plurinational State of)",	"Bonaire, Sint Eustatius and Saba",	"Bosnia and Herzegovina",	"Botswana",	"Brazil",	"British Virgin Islands",	"Brunei Darussalam",	"Bulgaria",	"Burkina Faso",	"Burundi",	"Cabo Verde",	"Cambodia",	"Cameroon",	"Canada",	"Cayman Islands",	"Central African Republic",	"Chad",	"Channel Islands",	"Chile",	"China",	"China, Hong Kong Special Administrative Region",	"China, Macao Special Administrative Region",	"Colombia",	"Comoros",	"Congo",	"Cook Islands",	"Costa Rica",	"Côte dIvoire",	"Croatia",	"Cuba",	"Curaçao",	"Cyprus",	"Czech Republic",	"Democratic Peoples Republic of Korea",	"Democratic Republic of the Congo",	"Denmark",	"Djibouti",	"Dominica",	"Dominican Republic",	"Ecuador",	"Egypt",	"El Salvador",	"Equatorial Guinea",	"Eritrea",	"Estonia",	"Ethiopia",	"Faeroe Islands",	"Falkland Islands (Malvinas)",	"Fiji",	"Finland",	"France",	"French Guiana",	"French Polynesia",	"Gabon",	"Gambia",	"Georgia",	"Germany",	"Ghana",	"Gibraltar",	"Greece",	"Greenland",	"Grenada",	"Guadeloupe",	"Guam",	"Guatemala",	"Guinea",	"Guinea-Bissau",	"Guyana",	"Haiti",	"Holy See",	"Honduras",	"Hungary",	"Iceland",	"India",	"Indonesia",	"Iran (Islamic Republic of)",	"Iraq",	"Ireland",	"Isle of Man",	"Israel",	"Italy",	"Jamaica",	"Japan",	"Jordan",	"Kazakhstan",	"Kenya",	"Kiribati",	"Kuwait",	"Kyrgyzstan",	"Lao Peoples Democratic Republic",	"Latvia",	"Lebanon",	"Lesotho",	"Liberia",	"Libya",	"Liechtenstein",	"Lithuania",	"Luxembourg",	"Madagascar",	"Malawi",	"Malaysia",	"Maldives",	"Mali",	"Malta",	"Marshall Islands",	"Martinique",	"Mauritania",	"Mauritius",	"Mayotte",	"Mexico",	"Micronesia (Federated States of)",	"Monaco",	"Mongolia",	"Montenegro",	"Montserrat",	"Morocco",	"Mozambique",	"Myanmar",	"Namibia",	"Nauru",	"Nepal",	"Netherlands",	"New Caledonia",	"New Zealand",	"Nicaragua",	"Niger",	"Nigeria",	"Niue",	"Northern Mariana Islands",	"Norway",	"Oman",	"Pakistan",	"Palau",	"Panama",	"Papua New Guinea",	"Paraguay",	"Peru",	"Philippines",	"Poland",	"Portugal",	"Puerto Rico",	"Qatar",	"Republic of Korea",	"Republic of Moldova",	"Réunion",	"Romania",	"Russian Federation",	"Rwanda",	"Saint Helena",	"Saint Kitts and Nevis",	"Saint Lucia",	"Saint Pierre and Miquelon",	"Saint Vincent and the Grenadines",	"Samoa",	"San Marino",	"Sao Tome and Principe",	"Saudi Arabia",	"Senegal",	"Serbia",	"Seychelles",	"Sierra Leone",	"Singapore",	"Sint Maarten (Dutch part)",	"Slovakia",	"Slovenia",	"Solomon Islands",	"Somalia",	"South Africa",	"South Sudan",	"Spain",	"Sri Lanka",	"State of Palestine",	"Sudan",	"Suriname",	"Swaziland",	"Sweden",	"Switzerland",	"Syrian Arab Republic",	"Tajikistan",	"Thailand",	"The former Yugoslav Republic of Macedonia",	"Timor-Leste",	"Togo",	"Tokelau",	"Tonga",	"Trinidad and Tobago",	"Tunisia",	"Turkey",	"Turkmenistan",	"Turks and Caicos Islands",	"Tuvalu",	"Uganda",	"Ukraine",	"United Arab Emirates",	"United Kingdom of Great Britain and Northern Ireland",	"United Republic of Tanzania",	"United States of America",	"United States Virgin Islands",	"Uruguay",	"Uzbekistan",	"Vanuatu",	"Venezuela (Bolivarian Republic of)",	"Viet Nam",	"Wallis and Futuna Islands",	"Western Sahara",	"Yemen",	"Zambia",	"Zimbabwe"];
 
-    var countryCodes = ["004",	"008",	"012",	"016",	"020",	"024",	660,	"028",	"032",	"051",	533,	"036",	"040",	"031",	"044",	"048",	"050",	"052",	112,	"056",	"084",	204,	"060",	"064",	"068",	535,	"070",	"072",	"076",	"092",	"096",	100,	854,	108,	132,	116,	120,	124,	136,	140,	148,	830,	152,	156,	344,	446,	170,	174,	178,	184,	188,	384,	191,	192,	531,	196,	203,	408,	180,	208,	262,	212,	214,	218,	818,	222,	226,	232,	233,	231,	234,	238,	242,	246,	250,	254,	258,	266,	270,	268,	276,	288,	292,	300,	304,	308,	312,	316,	320,	324,	624,	328,	332,	336,	340,	348,	352,	356,	360,	364,	368,	372,	833,	376,	380,	388,	392,	400,	398,	404,	296,	414,	417,	418,	428,	422,	426,	430,	434,	438,	440,	442,	450,	454,	458,	462,	466,	470,	584,	474,	478,	480,	175,	484,	583,	492,	496,	499,	500,	504,	508,	104,	516,	520,	524,	528,	540,	554,	558,	562,	566,	570,	580,	578,	512,	586,	585,	591,	598,	600,	604,	608,	616,	620,	630,	634,	410,	498,	638,	642,	643,	646,	654,	659,	662,	666,	670,	882,	674,	678,	682,	686,	688,	690,	694,	702,	534,	703,	705,	090,	706,	710,	728,	724,	144,	275,	729,	740,	748,	752,	756,	760,	762,	764,	807,	626,	768,	772,	776,	780,	788,	792,	795,	796,	798,	800,	804,	784,	826,	834,	840,	850,	858,	860,	548,	862,	704,	876,	732,	887,	894,	716];
-    //Color for different regions, not used yet
-    var asiaColor = "#c404ef";
-    var europeColor = "#ef9104";
-    var africaColor = "#ef0804";
-    var americaColor = "#00f704";
-    var oceaniaColor = "#00caf7";
+      var countryCodes = ["004",	"008",	"012",	"016",	"020",	"024",	660,	"028",	"032",	"051",	533,	"036",	"040",	"031",	"044",	"048",	"050",	"052",	112,	"056",	"084",	204,	"060",	"064",	"068",	535,	"070",	"072",	"076",	"092",	"096",	100,	854,	108,	132,	116,	120,	124,	136,	140,	148,	830,	152,	156,	344,	446,	170,	174,	178,	184,	188,	384,	191,	192,	531,	196,	203,	408,	180,	208,	262,	212,	214,	218,	818,	222,	226,	232,	233,	231,	234,	238,	242,	246,	250,	254,	258,	266,	270,	268,	276,	288,	292,	300,	304,	308,	312,	316,	320,	324,	624,	328,	332,	336,	340,	348,	352,	356,	360,	364,	368,	372,	833,	376,	380,	388,	392,	400,	398,	404,	296,	414,	417,	418,	428,	422,	426,	430,	434,	438,	440,	442,	450,	454,	458,	462,	466,	470,	584,	474,	478,	480,	175,	484,	583,	492,	496,	499,	500,	504,	508,	104,	516,	520,	524,	528,	540,	554,	558,	562,	566,	570,	580,	578,	512,	586,	585,	591,	598,	600,	604,	608,	616,	620,	630,	634,	410,	498,	638,	642,	643,	646,	654,	659,	662,	666,	670,	882,	674,	678,	682,	686,	688,	690,	694,	702,	534,	703,	705,	090,	706,	710,	728,	724,	144,	275,	729,	740,	748,	752,	756,	760,	762,	764,	807,	626,	768,	772,	776,	780,	788,	792,	795,	796,	798,	800,	804,	784,	826,	834,	840,	850,	858,	860,	548,	862,	704,	876,	732,	887,	894,	716];
+      //Color for different regions, not used yet
+      var asiaColor = "#c404ef";
+      var europeColor = "#ef9104";
+      var africaColor = "#ef0804";
+      var americaColor = "#00f704";
+      var oceaniaColor = "#00caf7";
 
-    //Used to add commas to migration stats
-    var intFormatComma = d3.format(",");
+      //Used to add commas to migration stats
+      var intFormatComma = d3.format(",");
 
-    //console.log("1990: " + y1990[0]['Afghanistan']); //Points to world total from Afghanistan
+      //Path Generator for worldmap geojson file
+      var pathGenerator = d3.geoPath()
+          .projection(d3.geoMercator()
+          .translate( [width/2, height/2] ));
 
-    //Path Generator for geojson file
-    var pathGenerator = d3.geoPath()
-        .projection(d3.geoMercator()
-        .translate( [width/2, height/2] ));
+      //Initialize svg that displays map
+      var mapSvg = d3.select("body")
+          .append("svg")
+          .attr("width", width)
+          .attr("height", height)
+          .attr("y", 50);
 
-    //Initialize svg that displays map
-    var mapSvg = d3.select("body")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("y", 50);
+      //Get year from slider
+      var migrationYear = document.getElementById("range").innerHTML;
+      var migrationType = document.querySelector('input[name="migrationToggle"]:checked').value;
+      //changeYear will repopulate map with year from slider
+      changeMap(migrationYear, migrationType);
 
-    //Get year from slider
-    var migrationYear = document.getElementById("range").innerHTML;
-    var migrationType = document.querySelector('input[name="migrationToggle"]:checked').value;
-    //changeYear will repopulate map with year from slider
-    changeMap(migrationYear, migrationType);
+      //Called first with 1990, changes on slide
+      function changeMap(yearVal, migrationVal){
+        //Change year displayed by slider
+        document.getElementById("range").innerHTML = yearVal;
+        migrationYear = yearVal;
 
-    //Called first with 1990, changes on slide
-    function changeMap(yearVal, migrationVal){
-      //Change year displayed by slider
-      document.getElementById("range").innerHTML = yearVal;
-      migrationYear = yearVal;
+        migrationType = migrationVal;
 
-      migrationType = migrationVal;
+        console.log("Viewing " + migrationType + " in " + migrationYear);
+        //Open csv file for that year
+        d3.csv("./data/y" + migrationYear + ".csv", function(data){
 
-      console.log("Viewing " + migrationType + " in " + migrationYear);
-      //Open csv file for that year
-      d3.csv("./data/y" + migrationYear + ".csv", function(data){
+          //Cast migration stats to int
+          data.forEach(function(d){
+            d.Total = parseInt(d.Total);
+            d[0] = parseInt(d[0]);
+          });
 
-        //Cast migration stats to int
-        data.forEach(function(d){
-          d.Total = parseInt(d.Total);
-          d[0] = parseInt(d[0]);
-        });
+          //Find max for immigration, print value and create color scale
+          var maxImmigration = d3.max(data, function(d){
+            if(d.Destination != d.Region){
+              return d.Total;
+            }
+          })
+          console.log("Max Immigration in " + migrationYear + ": " + maxImmigration)
+          var immigrationColor = d3.scaleQuantize()
+              .domain([0, maxImmigration]).range(['#d0d1e6','#a6bddb','#74a9cf','#3690c0','#0570b0','#034e7b']) ;
 
-        //Find max for immigration, print value and create color scale
-        var maxImmigration = d3.max(data, function(d){
-          if(d.Destination != d.Region){
-            return d.Total;
+          //Find max for emigration, print value, create color scale
+          var maxEmigration = data[0][countryNames[0]];
+          for(var m = 0; m < countryNames.length; m++){
+            if(parseInt(data[0][countryNames[m]]) > maxEmigration){
+              maxEmigration = parseInt(data[0][countryNames[m]]);
+            }
           }
-        })
-        console.log("Max Immigration in " + migrationYear + ": " + maxImmigration)
-        var immigrationColor = d3.scaleQuantize()
-            .domain([0, maxImmigration]).range(['#d0d1e6','#a6bddb','#74a9cf','#3690c0','#0570b0','#034e7b']) ;
+          console.log("Max Emigration in " +  migrationYear + ": " + maxEmigration);
+          var emigrationColor = d3.scaleQuantize()
+              .domain([0, maxEmigration]).range(['#fdd49e','#fdbb84','#fc8d59','#ef6548','#d7301f','#990000']);
 
-        //Find max for emigration, print value, create color scale
-        var maxEmigration = data[0][countryNames[0]];
-        for(var m = 0; m < countryNames.length; m++){
-          if(parseInt(data[0][countryNames[m]]) > maxEmigration){
-            maxEmigration = parseInt(data[0][countryNames[m]]);
-          }
-        }
-        console.log("Max Emigration in " +  migrationYear + ": " + maxEmigration);
-        var emigrationColor = d3.scaleQuantize()
-            .domain([0, maxEmigration]).range(['#fdd49e','#fdbb84','#fc8d59','#ef6548','#d7301f','#990000']);
+          var minFluctuation;
+          var maxFluctuation;
+          var fluctuationColor = d3.scaleQuantize()
+              .domain([minFluctuation, maxFluctuation]).range(['#990000','#ef6548','#fdbb84','#a6bddb','#3690c0','#034e7b']);
 
-        var minFluctuation;
-        var maxFluctuation;
-        var fluctuationColor = d3.scaleQuantize()
-            .domain([minFluctuation, maxFluctuation]).range(['#990000','#ef6548','#fdbb84','#a6bddb','#3690c0','#034e7b']);
+          console.log("");
+          //Open json file
+          d3.json("./data/worldmap.geo.json", function(dataJson){
 
-        console.log("");
-        //Open json file
-        d3.json("./data/worldmap.geo.json", function(dataJson){
+            if(migrationType == "immigration"){
+              //Loop through csv file
+              for(var i = 0; i < data.length; i++){
+                //Get destination country code, immigration total
+                var destinationCountryCode = data[i].countryCode;
+                var immigrationVal = parseFloat(data[i].Total);
 
-          if(migrationType == "immigration"){
-            //Loop through csv file
-            for(var i = 0; i < data.length; i++){
-              //Get destination country code, immigration total
-              var destinationCountryCode = data[i].countryCode;
-              var immigrationVal = parseFloat(data[i].Total);
+                //Loop through json file
+                for(var j = 0; j < dataJson.features.length; j++){
+                  //Get country code for each json country element
+                  var jsonCountryCode = dataJson.features[j].properties.iso_n3;
 
-              //Loop through json file
-              for(var j = 0; j < dataJson.features.length; j++){
-                //Get country code for each json country element
-                var jsonCountryCode = dataJson.features[j].properties.iso_n3;
-
-                //If destination code equals json country code, save immigration value to json file country
-                if(parseInt(destinationCountryCode) == parseInt(jsonCountryCode)){
-                  dataJson.features[j].properties.value = immigrationVal;
-                  break;
+                  //If destination code equals json country code, save immigration value to json file country
+                  if(parseInt(destinationCountryCode) == parseInt(jsonCountryCode)){
+                    dataJson.features[j].properties.value = immigrationVal;
+                    break;
+                  }
                 }
               }
             }
-          }
 
-          else if(migrationType == "emigration"){
-            for(var i = 0; i < countryNames.length; i++){
-              var emigrationVal = parseFloat(data[0][countryNames[i]]);
+            else if(migrationType == "emigration"){
+              for(var i = 0; i < countryNames.length; i++){
+                var emigrationVal = parseFloat(data[0][countryNames[i]]);
 
-              for(var j = 0; j < dataJson.features.length; j++){
-                var jsonCountryCode = dataJson.features[j].properties.iso_n3;
+                for(var j = 0; j < dataJson.features.length; j++){
+                  var jsonCountryCode = dataJson.features[j].properties.iso_n3;
 
-                if(countryCodes[i] == parseInt(jsonCountryCode) ){
-                  dataJson.features[j].properties.value = emigrationVal;
-                  break;
+                  if(countryCodes[i] == parseInt(jsonCountryCode) ){
+                    dataJson.features[j].properties.value = emigrationVal;
+                    break;
+                  }
                 }
               }
             }
+
+            //Tooltip displays info on hover
+            var tooltip = d3.select("body")
+                .append("div")
+                .style("position", "absolute")
+                .style("z-index", "10")
+                .style("border", "2px; solid")
+                .style("border-radius", "8px")
+                .style("visibility", "hidden")
+                .style("background", "#f2ad0c")
+                .text("Tooltip");
+
+            d3.selectAll("path").remove();
+
+            //Select SVG, create map with json file
+            mapSvg.selectAll("path")
+              .data(dataJson.features)
+              .enter()
+              .append("path")
+              .attr("d", pathGenerator)
+              .style("fill", function(d){
+                //Fill with immigration color scale
+                if(migrationType == "immigration"){
+                  return immigrationColor(d.properties.value);
+                }
+                else{
+                  return emigrationColor(d.properties.value);
+                }
+              })
+              .on("mouseover", function(d){
+                //Display tooltip on mouseover
+                tooltip.text("Country: " + d.properties.name +
+                              ",\n" + "Total " + migrationType + ": "
+                              + intFormatComma(d.properties.value) );
+                return tooltip.style("visibility", "visible");})
+              .on("mousemove", function(){
+                //Move tooltip with mouse
+                return tooltip.style("top", (d3.event.pageY-10) + "px")
+                              .style("left", (d3.event.pageX+10) + "px");})
+              .on("mouseout", function(){
+                //Hide tooltip on mouseout
+                return tooltip.style("visibility", "hidden");});
+              })
+            })
           }
-
-          //Tooltip displays info on hover
-          var tooltip = d3.select("body")
-              .append("div")
-              .style("position", "absolute")
-              .style("z-index", "10")
-              .style("border", "2px; solid")
-              .style("border-radius", "8px")
-              .style("visibility", "hidden")
-              .style("background", "#f2ad0c")
-              .text("Tooltip");
-
-          d3.selectAll("path").remove();
-
-          //Select SVG, create map with json file
-          mapSvg.selectAll("path")
-             .data(dataJson.features)
-             .enter()
-             .append("path")
-             .attr("d", pathGenerator)
-             .style("fill", function(d){
-               //Fill with immigration color scale
-               if(migrationType == "immigration"){
-                 return immigrationColor(d.properties.value);
-               }
-               else{
-                 return emigrationColor(d.properties.value);
-               }
-             })
-             .on("mouseover", function(d){
-               //Display tooltip on mouseover
-               tooltip.text("Country: " + d.properties.name +
-                            ",\n" + "Total " + migrationType + ": "
-                            + intFormatComma(d.properties.value) );
-               return tooltip.style("visibility", "visible");})
-             .on("mousemove", function(){
-               //Move tooltip with mouse
-               return tooltip.style("top", (d3.event.pageY-10) + "px")
-                             .style("left", (d3.event.pageX+10) + "px");})
-             .on("mouseout", function(){
-               //Hide tooltip on mouseout
-               return tooltip.style("visibility", "hidden");});
-             })
-           })
-         }
 
     </script>
   </body>
